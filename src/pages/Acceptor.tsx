@@ -24,24 +24,22 @@ export default function Donor() {
             .then((res: any) => {
                 setUsers(res)
                 if (blood == O) {
-                    const a = res.map((x: any) => x);
-                    setUsers([...a]);
                     const b = res.filter((x: any) => x.bloodgroup == blood);
                     setUsers([...b]);
                 }
                 if (blood == A) {
-                    const a = res.filter((x: any) => x.bloodgroup == AB);
+                    const a = res.filter((x: any) => x.bloodgroup == O);
                     const b = res.filter((x: any) => x.bloodgroup == blood);
                     setUsers([...a, ...b]);
                 }
                 if (blood == B) {
-                    const a = res.filter((x: any) => x.bloodgroup == AB);
+                    const a = res.filter((x: any) => x.bloodgroup == O);
                     const b = res.filter((x: any) => x.bloodgroup == blood);
                     setUsers([...a, ...b]);
                 }
                 if (blood == AB) {
-                    const b = res.filter((x: any) => x.bloodgroup == blood);
-                    setUsers([...b]);
+                    const a = res.map((x: any) => x);
+                    setUsers([...a]);
                 }
                 // console.log(res)
                 // users && Array.isArray(users) && users.map((x: any, i: any) => {
